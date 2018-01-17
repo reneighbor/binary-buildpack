@@ -1,11 +1,12 @@
 #!/usr/bin/env ruby
 
 require 'webrick'
+require 'json'
 
 server = WEBrick::HTTPServer.new :Port => ENV['PORT']
 
 server.mount_proc '/' do |request, response|
-  response.body = 'Hello, world!'
+  response.body = ENV.to_hash.to_json
 end
 
 trap 'INT' do server.shutdown end
