@@ -12,6 +12,10 @@ export BUILDPACK_PATH=$BP_DIR
 source $BP_DIR/compile-extensions/lib/common
 $BP_DIR/compile-extensions/bin/check_buildpack_version $BP_DIR $CACHE_DIR
 
+echo =====
+echo "CF_STACK: $CF_STACK"
+echo =====
+
 $BP_DIR/compile-extensions/bin/write_config_yml $BP_DIR "$DEPS_DIR/$DEPS_IDX"
 
 exit 0
