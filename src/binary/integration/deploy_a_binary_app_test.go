@@ -3,18 +3,20 @@ package integration_test
 import (
 	"path/filepath"
 
+	"os"
+
 	"github.com/cloudfoundry/libbuildpack/cutlass"
 	. "github.com/onsi/ginkgo"
 	. "github.com/onsi/gomega"
-	"os"
 )
 
 var _ = Describe("CF Binary Buildpack", func() {
 	var app *cutlass.App
+	BeforeEach(SkipIfNotLinux)
 
 	AfterEach(func() {
 		if app != nil {
-			app.Destroy()
+			// app.Destroy()
 		}
 		app = nil
 	})

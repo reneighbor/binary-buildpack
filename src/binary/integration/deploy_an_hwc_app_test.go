@@ -16,7 +16,7 @@ var _ = Describe("CF Binary Buildpack", func() {
 
 	AfterEach(func() {
 		if app != nil {
-			app.Destroy()
+			// app.Destroy()
 		}
 		app = nil
 	})
